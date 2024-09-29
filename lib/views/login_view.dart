@@ -10,7 +10,7 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
-    TextEditingController _loginController = TextEditingController();
+    TextEditingController _emailController = TextEditingController();
     var altura = MediaQuery.of(context).size.height;
     var largura = MediaQuery.of(context).size.width;
 
@@ -24,6 +24,7 @@ class _LoginViewState extends State<LoginView> {
               padding: const EdgeInsets.only(top: 50, bottom: 25, left: 20, right: 20),
               child: TextField(
                 cursorColor: const Color(0xFF1E90FF),
+                controller: _emailController,
                 decoration: InputDecoration(
                   hintText: 'Email',
                   border: OutlineInputBorder(
@@ -44,7 +45,6 @@ class _LoginViewState extends State<LoginView> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
               child: TextField(
-                controller: _loginController,
                 cursorColor: const Color(0xFF1E90FF),
                 obscureText: true,
                 decoration: InputDecoration(
