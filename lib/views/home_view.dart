@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:nusic/models/categorias.dart';
 import 'package:nusic/models/musics.dart';
 
@@ -30,11 +31,18 @@ class _HomeViewState extends State<HomeView> {
 
   List<Categorias> categorias = [
     Categorias(nome: 'Geral'),
-    Categorias(nome: 'Músicas'),
+    Categorias(nome: 'Categorias'),
     Categorias(nome: 'Álbuns'),
   ];
 
   int _selectedIndex = 0;
+  int _gnavIndex = 0;
+
+  void _gnavTapped(int index) {
+    setState(() {
+      _gnavIndex = index;
+    });
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -45,6 +53,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     var altura = MediaQuery.of(context).size.height;
+    var largura = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
@@ -93,14 +102,17 @@ class _HomeViewState extends State<HomeView> {
                           categoria.nome,
                           style: TextStyle(
                             fontSize: 18,
-                            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                            color: isSelected ? Colors.black : Color(0xFFBDBCC5),
+                            fontWeight: isSelected
+                                ? FontWeight.bold
+                                : FontWeight.normal,
+                            color:
+                                isSelected ? Colors.black : Color(0xFFBDBCC5),
                           ),
                         ),
                         if (isSelected)
                           Container(
                             height: 2,
-                            width: 40,
+                            width: largura * 0.1,
                             color: Colors.blue,
                           ),
                       ],
@@ -111,6 +123,38 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Material(
+        elevation: 10,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 3, bottom: 3),
+          child: GNav(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            selectedIndex: _gnavIndex,
+            onTabChange: _gnavTapped,
+            tabActiveBorder: Border.all(color: Colors.black),
+            padding: EdgeInsets.all(15),
+            gap: 5,
+            tabs: [
+              GButton(
+                icon: Icons.home_outlined,
+                text: 'Home',
+              ),
+              GButton(
+                icon: Icons.search_outlined,
+                text: 'Buscar',
+              ),
+              GButton(
+                icon: Icons.playlist_play_outlined,
+                text: 'Playlist',
+              ),
+              GButton(
+                icon: Icons.person_outline,
+                text: 'Conta',
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
