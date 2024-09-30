@@ -48,7 +48,7 @@ class _HomeViewState extends State<HomeView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Olá, Gustavo',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -92,7 +92,7 @@ class _HomeViewState extends State<HomeView> {
                         Text(
                           categoria.nome,
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 18,
                             fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                             color: isSelected ? Colors.black : Color(0xFFBDBCC5),
                           ),
