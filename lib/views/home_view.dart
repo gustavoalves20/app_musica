@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nusic/models/categorias.dart';
 import 'package:nusic/models/musics.dart';
 
 class HomeView extends StatefulWidget {
@@ -10,10 +11,29 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   List<Musics> infoMusicas = [
-    Musics(imagemMusica: 'assets/eminem.png', nomeMusica: 'Mockingbird',nomeCantor: 'Eminem',duracaoMusica: const Duration(minutes: 4, seconds: 10)),
-    Musics(imagemMusica: 'assets/eminem.png', nomeMusica: 'Godzilla', nomeCantor: 'Eminem', duracaoMusica: const Duration(minutes: 3, seconds: 30)),
-    Musics(imagemMusica: 'assets/eminem.png', nomeMusica: 'Rap God', nomeCantor: 'Eminem', duracaoMusica: const Duration(minutes: 6, seconds: 30)),
+    Musics(
+        imagemMusica: 'assets/eminem.png',
+        nomeMusica: 'Mockingbird',
+        nomeCantor: 'Eminem',
+        duracaoMusica: const Duration(minutes: 4, seconds: 10)),
+    Musics(
+        imagemMusica: 'assets/eminem.png',
+        nomeMusica: 'Godzilla',
+        nomeCantor: 'Eminem',
+        duracaoMusica: const Duration(minutes: 3, seconds: 30)),
+    Musics(
+        imagemMusica: 'assets/eminem.png',
+        nomeMusica: 'Rap God',
+        nomeCantor: 'Eminem',
+        duracaoMusica: const Duration(minutes: 6, seconds: 30)),
   ];
+
+  List<Categorias> categorias = [
+    Categorias(nome: 'Geral'),
+    Categorias(nome: 'Músicas'),
+    Categorias(nome: 'Álbuns'),
+  ];
+
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -21,102 +41,76 @@ class _HomeViewState extends State<HomeView> {
       _selectedIndex = index;
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
+    var altura = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Músicas'),
+        title: const Text(
+          'Olá, Gustavo',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: CircleAvatar(
+            radius: 50,
+            backgroundImage: AssetImage('assets/eu.jpg'),
+          ),
+        ),
+        actions: [
+          Icon(Icons.favorite_outline),
+          Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Icon(Icons.notifications_outlined),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Icon(Icons.settings_outlined),
+          ),
+        ],
       ),
-      drawer: const Drawer(),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: TextField(
-              cursorColor: const Color(0xFF757575),
-              obscureText: true,
-              decoration: InputDecoration(
-                hintText: 'Procurar música...',
-                prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(
-                    color: Colors.transparent,
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(
-                    color: Color(0xFF1E90FF),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text('Rap', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
-                Text('Ver todos', style: TextStyle(color: Colors.grey[700]),)
-              ],
-            ),
-          ),
-          Expanded(
+          Container(
+            padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+            height: altura * 0.1,
             child: ListView.builder(
-              itemCount: infoMusicas.length,
+              physics: NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemCount: categorias.length,
               itemBuilder: (context, index) {
-                final musicas = infoMusicas[index];
-                return Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, top: 5),
-                  child: ListTile(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    leading: Image.asset(musicas.imagemMusica),
-                    titleTextStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-                    title: Text(musicas.nomeMusica),
-                    tileColor: Colors.grey.shade200,
-                    subtitleTextStyle: TextStyle(color: Colors.grey[800]),
-                    subtitle: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                final categoria = categorias[index];
+                bool isSelected = index == _selectedIndex;
+                return GestureDetector(
+                  onTap: () => _onItemTapped(index),
+                  child: Container(
+                    margin: EdgeInsets.only(right: 15),
+                    child: Column(
                       children: [
-                        const Icon(Icons.person, size: 15),
-                        Text(musicas.nomeCantor),
-                        const Padding(padding: EdgeInsets.only(left: 5)),
-                        const Icon(Icons.access_time, size: 15),
-                        Text('${musicas.duracaoMusica.inMinutes}:30', style: TextStyle(color: Colors.grey[800]),),
+                        Text(
+                          categoria.nome,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                            color: isSelected ? Colors.black : Color(0xFFBDBCC5),
+                          ),
+                        ),
+                        if (isSelected)
+                          Container(
+                            height: 2,
+                            width: 40,
+                            color: Colors.blue,
+                          ),
                       ],
                     ),
-                    trailing: const Icon(Icons.play_arrow),
                   ),
                 );
               },
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_rounded),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.play_arrow_rounded),
-            label: 'Playing',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.library_music_rounded),
-            label: 'Playlists',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xFF1E90FF),
-        unselectedItemColor: Colors.grey.shade600,
-        onTap: _onItemTapped,
-        type: BottomNavigationBarType.fixed,
       ),
     );
   }
