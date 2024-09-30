@@ -93,8 +93,11 @@ class _HomeViewState extends State<HomeView> {
                           categoria.nome,
                           style: TextStyle(
                             fontSize: 18,
-                            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                            color: isSelected ? Colors.black : Color(0xFFBDBCC5),
+                            fontWeight: isSelected
+                                ? FontWeight.bold
+                                : FontWeight.normal,
+                            color:
+                                isSelected ? Colors.black : Color(0xFFBDBCC5),
                           ),
                         ),
                         if (isSelected)
