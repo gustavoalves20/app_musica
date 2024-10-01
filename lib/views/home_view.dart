@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:nusic/models/categorias.dart';
 import 'package:nusic/models/musics.dart';
 
@@ -35,6 +36,13 @@ class _HomeViewState extends State<HomeView> {
   ];
 
   int _selectedIndex = 0;
+  int _gnavselected = 0;
+
+  void _ongnavtapped(int index) {
+    setState(() {
+      _gnavselected = index;
+    });
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -114,6 +122,39 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Material(
+        elevation: 15,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 2, bottom: 2),
+          child: GNav(
+            gap: 5,
+            color: Color(0xFFBDBCC5),
+            tabActiveBorder: Border.all(color: Colors.black),
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            padding: EdgeInsets.all(15),
+            selectedIndex: _gnavselected,
+            onTabChange: _ongnavtapped,
+            tabs: [
+              GButton(
+                icon: Icons.home_outlined,
+                text: 'Início',
+              ),
+              GButton(
+                icon: Icons.search_outlined,
+                text: 'Buscar',
+              ),
+              GButton(
+                icon: Icons.playlist_play_outlined,
+                text: 'Playlists',
+              ),
+              GButton(
+                icon: Icons.person_outline,
+                text: 'Conta',
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
