@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:nusic/models/categorias.dart';
-import 'package:nusic/models/musics.dart';
+import 'package:nusic/models/imagens.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -11,22 +11,12 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  List<Musics> infoMusicas = [
-    Musics(
-        imagemMusica: 'assets/eminem.png',
-        nomeMusica: 'Mockingbird',
-        nomeCantor: 'Eminem',
-        duracaoMusica: const Duration(minutes: 4, seconds: 10)),
-    Musics(
-        imagemMusica: 'assets/eminem.png',
-        nomeMusica: 'Godzilla',
-        nomeCantor: 'Eminem',
-        duracaoMusica: const Duration(minutes: 3, seconds: 30)),
-    Musics(
-        imagemMusica: 'assets/eminem.png',
-        nomeMusica: 'Rap God',
-        nomeCantor: 'Eminem',
-        duracaoMusica: const Duration(minutes: 6, seconds: 30)),
+  List<Imagens> imagensLista = [
+    Imagens(nomeImagem: 'assets/godzilla.jfif', nome: 'Eminem'),
+    Imagens(nomeImagem: 'assets/godzilla.jfif', nome: 'Eminem'),
+    Imagens(nomeImagem: 'assets/godzilla.jfif', nome: 'Eminem'),
+    Imagens(nomeImagem: 'assets/godzilla.jfif', nome: 'Eminem'),
+    Imagens(nomeImagem: 'assets/godzilla.jfif', nome: 'Eminem'),
   ];
 
   List<Categorias> categorias = [
@@ -68,14 +58,17 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
         actions: [
-          Icon(Icons.favorite_outline),
-          Padding(
-            padding: const EdgeInsets.only(left: 10, right: 10),
-            child: Icon(Icons.notifications_outlined),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.favorite_outline),
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: Icon(Icons.settings_outlined),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.refresh_outlined),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.settings_outlined),
           ),
         ],
       ),
