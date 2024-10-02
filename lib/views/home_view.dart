@@ -21,11 +21,10 @@ class _HomeViewState extends State<HomeView> {
 
   List<Categorias> categorias = [
     Categorias(nome: 'Geral'),
-    Categorias(nome: 'Músicas'),
+    Categorias(nome: 'Categorias'),
     Categorias(nome: 'Álbuns'),
   ];
 
-  int _selectedIndex = 0;
   int _gnavselected = 0;
 
   void _ongnavtapped(int index) {
@@ -34,24 +33,16 @@ class _HomeViewState extends State<HomeView> {
     });
   }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    var altura = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Olá, Gustavo',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10),
+        leading: const Padding(
+          padding: EdgeInsets.only(left: 10),
           child: CircleAvatar(
             radius: 50,
             backgroundImage: AssetImage('assets/eu.jpg'),
@@ -60,90 +51,76 @@ class _HomeViewState extends State<HomeView> {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.favorite_outline),
+            icon: const Icon(Icons.brightness_4_rounded),
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.refresh_outlined),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.settings_outlined),
+            icon: const Icon(Icons.settings_rounded),
           ),
         ],
       ),
       body: Column(
         children: [
-          Container(
-            padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-            height: altura * 0.1,
-            child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: categorias.length,
-              itemBuilder: (context, index) {
-                final categoria = categorias[index];
-                bool isSelected = index == _selectedIndex;
-                return GestureDetector(
-                  onTap: () => _onItemTapped(index),
-                  child: Container(
-                    margin: EdgeInsets.only(right: 15),
-                    child: Column(
-                      children: [
-                        Text(
-                          categoria.nome,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: isSelected
-                                ? FontWeight.bold
-                                : FontWeight.normal,
-                            color:
-                                isSelected ? Colors.black : Color(0xFFBDBCC5),
-                          ),
-                        ),
-                        if (isSelected)
-                          Container(
-                            height: 2,
-                            width: 40,
-                            color: Colors.blue,
-                          ),
-                      ],
-                    ),
-                  ),
-                );
-              },
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: const Color(0xFFBDBCC5)),
+                borderRadius: BorderRadius.circular(10),
+
+              ),
+              child: TextField(
+                cursorColor: Colors.black,
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(10),
+                  hintText: 'Procurar',
+                  prefixIcon: IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.search_outlined)),
+                  border: InputBorder.none,
+                ),
+              ),
             ),
           ),
         ],
       ),
-      bottomNavigationBar: Material(
-        elevation: 15,
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 5,
+              offset: const Offset(0, -3),
+            ),
+          ],
+        ),
         child: Padding(
           padding: const EdgeInsets.only(top: 2, bottom: 2),
           child: GNav(
             gap: 5,
-            color: Color(0xFFBDBCC5),
+            color: const Color(0xFFBDBCC5),
             tabActiveBorder: Border.all(color: Colors.black),
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             selectedIndex: _gnavselected,
             onTabChange: _ongnavtapped,
-            tabs: [
+            tabs: const [
               GButton(
-                icon: Icons.home_outlined,
+                icon: Icons.home_rounded,
                 text: 'Início',
               ),
               GButton(
-                icon: Icons.search_outlined,
-                text: 'Buscar',
+                icon: Icons.apps_rounded,
+                text: 'Categorias',
               ),
               GButton(
-                icon: Icons.playlist_play_outlined,
-                text: 'Playlists',
+                icon: Icons.library_music_rounded,
+                text: 'Biblioteca',
               ),
               GButton(
-                icon: Icons.person_outline,
-                text: 'Conta',
+                icon: Icons.account_circle_rounded,
+                text: 'Perfil',
               ),
             ],
           ),
