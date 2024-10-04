@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:nusic/models/categorias.dart';
 import 'package:nusic/models/imagens.dart';
+import 'package:nusic/theme/text_field_theme.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -25,11 +25,11 @@ class _HomeViewState extends State<HomeView> {
     Categorias(nome: 'Álbuns'),
   ];
 
-  int _gnavselected = 0;
+  int navBarSelected = 0;
 
-  void _ongnavtapped(int index) {
+  void _onNavBarTap(int index) {
     setState(() {
-      _gnavselected = index;
+      navBarSelected = index;
     });
   }
 
@@ -63,67 +63,30 @@ class _HomeViewState extends State<HomeView> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: const Color(0xFFBDBCC5)),
-                borderRadius: BorderRadius.circular(10),
-
-              ),
-              child: TextField(
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.all(10),
-                  hintText: 'Procurar',
-                  prefixIcon: IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.search_outlined)),
-                  border: InputBorder.none,
-                ),
-              ),
+            child: TextField(
+              cursorColor: Colors.black,
+              decoration: TextFieldTheme.textFieldDecoration,
             ),
           ),
         ],
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 5,
-              offset: const Offset(0, -3),
-            ),
-          ],
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 2, bottom: 2),
-          child: GNav(
-            gap: 5,
-            color: const Color(0xFFBDBCC5),
-            tabActiveBorder: Border.all(color: Colors.black),
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            padding: const EdgeInsets.all(15),
-            selectedIndex: _gnavselected,
-            onTabChange: _ongnavtapped,
-            tabs: const [
-              GButton(
-                icon: Icons.home_rounded,
-                text: 'Início',
-              ),
-              GButton(
-                icon: Icons.apps_rounded,
-                text: 'Categorias',
-              ),
-              GButton(
-                icon: Icons.library_music_rounded,
-                text: 'Biblioteca',
-              ),
-              GButton(
-                icon: Icons.account_circle_rounded,
-                text: 'Perfil',
-              ),
-            ],
-          ),
+        child: BottomNavigationBar(
+          currentIndex: navBarSelected,
+          onTap: _onNavBarTap,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: const Color(0xFFBDBCC5),
+          type: BottomNavigationBarType.fixed,
+          items: const [
+            BottomNavigationBarItem(label: 'Início', icon: Icon(Icons.home_rounded)),
+            BottomNavigationBarItem(label: 'Categorias', icon: Icon(Icons.tune_rounded)),
+            BottomNavigationBarItem(label: 'Biblioteca', icon: Icon(Icons.library_music_rounded)),
+            BottomNavigationBarItem(label: 'Conta', icon: Icon(Icons.account_circle_rounded)),
+          ],
         ),
       ),
     );
