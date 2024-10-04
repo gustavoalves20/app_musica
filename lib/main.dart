@@ -5,8 +5,12 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => BottomBarController(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+        create: (context) => BottomBarController(),
+        ),
+      ],
       child: const MyApp(),
     ),
   );
