@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nusic/theme/my_text_field_theme.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -10,8 +11,8 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
-    TextEditingController _emailController = TextEditingController();
-    TextEditingController _passwordController = TextEditingController();
+    final _emailController = TextEditingController();
+    final _passwordController = TextEditingController();
 
     var altura = MediaQuery.of(context).size.height;
     var largura = MediaQuery.of(context).size.width;
@@ -25,55 +26,26 @@ class _LoginViewState extends State<LoginView> {
           Image.asset('assets/logo.png', height: altura * alturaLogo),
           Padding(
             padding: const EdgeInsets.only(top: 50, bottom: 25, left: 20, right: 20),
-            child: SizedBox(
-              height: altura * alturaContainer,
-              child: TextField(
-                controller: _emailController,
-                cursorColor: const Color(0xFF1E90FF),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(20),
-                  hintText: 'Email',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
-                      color: Color(0xFF1E90FF),
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
-                      color: Color(0xFF1E90FF),
-                    ),
-                  ),
-                ),
+            child: TextField(
+              controller: _emailController,
+              cursorColor: const Color(0xFF1E90FF),
+              decoration: MyTextFieldTheme.textFieldDecoration(
+                hintText: 'Email',
+                contentPadding: const EdgeInsets.all(20),
+                borderColor: const Color(0xFF1E90FF),
               ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
-            child: SizedBox(
-              height: altura * alturaContainer,
-              child: TextField(
-                controller: _passwordController,
-                cursorColor: const Color(0xFF1E90FF),
-                obscureText: true,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(20),
-                  hintText: 'Senha',
-                  suffixIcon: const Icon(Icons.visibility),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
-                      color: Color(0xFF1E90FF),
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(
-                      color: Color(0xFF1E90FF),
-                    ),
-                  ),
-                ),
+            child: TextField(
+              controller: _passwordController,
+              cursorColor: const Color(0xFF1E90FF),
+              obscureText: true,
+              decoration: MyTextFieldTheme.textFieldDecoration(
+                hintText: 'Senha',
+                contentPadding: const EdgeInsets.all(20),
+                borderColor: const Color(0xFF1E90FF),
               ),
             ),
           ),
@@ -102,9 +74,7 @@ class _LoginViewState extends State<LoginView> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF1E90FF),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                  shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(10)),
                 ),
                 onPressed: () {},
                 child: const Text(

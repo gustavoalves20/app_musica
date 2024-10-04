@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 
 class MyTextFieldTheme {
-  static InputDecoration get textFieldDecoration {
+  static InputDecoration textFieldDecoration ({
+    String hintText = '',
+    EdgeInsetsGeometry contentPadding = const EdgeInsets.all(10),
+    Color borderColor = Colors.grey,
+    Widget? prefixIcon,
+    Widget? suffixIcon,
+  }) {
     return InputDecoration(
-      contentPadding: const EdgeInsets.all(10),
-      hintText: 'Buscar músicas',
-      prefixIcon: IconButton(
-        onPressed: () {},
-        icon: const Icon(Icons.search_outlined),
-      ),
+      hintText: hintText,
+      contentPadding: contentPadding,
+      prefixIcon: prefixIcon,
+      suffix: suffixIcon,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: const BorderSide(color: Colors.black),
+        borderSide: BorderSide(color: borderColor),
       ),
     );
   }
