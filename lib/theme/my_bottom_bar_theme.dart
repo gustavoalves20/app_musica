@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class MyBottomBar {
-  static BottomNavigationBar get bottomNavBarDecoration {
+  static BottomNavigationBar bottomNavBarDecoration({
+    required int currentIndex,
+    required Function(int) onTap,
+  }) {
     return BottomNavigationBar(
+      currentIndex: currentIndex,
+      onTap: onTap,
       selectedItemColor: Colors.black,
       unselectedItemColor: const Color(0xFFBDBCC5),
       type: BottomNavigationBarType.fixed,

@@ -1,24 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:nusic/views/home_view.dart';
+import 'package:nusic/controller/bottom_bar_controller.dart';
+import 'package:nusic/views/my_app.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: GoogleFonts.ptSansTextTheme().copyWith(),
-        useMaterial3: true,
-      ),
-      home: const HomeView(),
-    );
-  }
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => BottomBarController(),
+      child: const MyApp(),
+    ),
+  );
 }
