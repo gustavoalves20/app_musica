@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nusic/models/categorias.dart';
 import 'package:nusic/models/imagens.dart';
-import 'package:nusic/theme/text_field_theme.dart';
+import 'package:nusic/theme/my_app_bar_theme.dart';
+import 'package:nusic/theme/my_text_field_theme.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -36,36 +37,14 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Olá, Gustavo',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        leading: const Padding(
-          padding: EdgeInsets.only(left: 10),
-          child: CircleAvatar(
-            radius: 50,
-            backgroundImage: AssetImage('assets/eu.jpg'),
-          ),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.brightness_4_rounded),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.settings_rounded),
-          ),
-        ],
-      ),
+      appBar: MyAppBarTheme.appBarDecoration,
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: TextField(
               cursorColor: Colors.black,
-              decoration: TextFieldTheme.textFieldDecoration,
+              decoration: MyTextFieldTheme.textFieldDecoration,
             ),
           ),
         ],

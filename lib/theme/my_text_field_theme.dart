@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TextFieldTheme {
+class MyTextFieldTheme {
   static InputDecoration get textFieldDecoration {
     return InputDecoration(
       contentPadding: const EdgeInsets.all(10),
