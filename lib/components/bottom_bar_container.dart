@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nusic/controller/bottom_bar_controller.dart';
-import 'package:nusic/theme/my_bottom_bar_theme.dart';
+import 'package:nusic/theme/custom_bottom_bar_theme.dart';
 import 'package:provider/provider.dart';
 
 class BottomBarContainer extends StatelessWidget {
@@ -19,7 +19,7 @@ class BottomBarContainer extends StatelessWidget {
           ),
         ],
       ),
-      child: MyBottomBar.bottomNavBarDecoration(
+      child: CustomBottomBarTheme.bottomNavBarDecoration(
         currentIndex: bottomBarController.currentIndex,
         onTap: bottomBarController.onNavBarTap,
       ),

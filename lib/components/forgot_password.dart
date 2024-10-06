@@ -12,10 +12,10 @@ class ForgotPassword extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          CustomTextButton.textButtonDecoration(
+          CustomTextButtonTheme.textButtonDecoration(
             onPressed: () {},
             text: 'Esqueci a senha',
-            textColor: CustomColor.textOrange,        
+            textColor: CustomColor.textPrimary,        
           ),
         ],
       ),

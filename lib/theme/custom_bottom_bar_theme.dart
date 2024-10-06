@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nusic/shared/custom_color.dart';
 
-class MyBottomBar {
+class CustomBottomBarTheme {
   static BottomNavigationBar bottomNavBarDecoration({
     required int currentIndex,
     required Function(int) onTap,
@@ -10,8 +10,10 @@ class MyBottomBar {
       currentIndex: currentIndex,
       onTap: onTap,
       backgroundColor: CustomColor.background,
-      selectedItemColor: CustomColor.bgFocus,
-      unselectedItemColor: CustomColor.bgUnfocus,
+      selectedItemColor: CustomColor.bgPrimary,
+      unselectedItemColor: CustomColor.bgGrey,
+      selectedFontSize: 14,
+      unselectedFontSize: 14,
       type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(
@@ -19,8 +21,8 @@ class MyBottomBar {
           icon: Icon(Icons.home_rounded),
         ),
         BottomNavigationBarItem(
-          label: 'Categorias',
-          icon: Icon(Icons.tune_rounded),
+          label: 'Buscar',
+          icon: Icon(Icons.search_rounded),
         ),
         BottomNavigationBarItem(
           label: 'Biblioteca',

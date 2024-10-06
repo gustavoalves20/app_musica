@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nusic/components/bottom_bar_container.dart';
 import 'package:nusic/controller/bottom_bar_controller.dart';
 
-import 'package:nusic/theme/my_app_bar_theme.dart';
+import 'package:nusic/theme/custom_app_bar_theme.dart';
 import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
@@ -15,11 +15,24 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    //var h = MediaQuery.of(context).size.height;
-    //var w = MediaQuery.of(context).size.width;
-
     return Scaffold(
-      appBar: MyAppBarTheme.appBarDecoration,
+      appBar: CustomAppBarTheme.appBarDecoration(
+        leading: const Padding(
+          padding: EdgeInsets.only(left: 8),
+          child: CircleAvatar(backgroundImage: AssetImage('assets/eu.jpg')),
+        ),
+        title: 'Olá, Gustavo',
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notifications_rounded),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.settings_rounded),
+          ),
+        ],
+      ),
       body: Consumer<BottomBarController>(
         builder: (context, value, child) {
           return const Column(

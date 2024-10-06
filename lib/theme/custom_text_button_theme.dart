@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomTextButton {
+class CustomTextButtonTheme {
   static TextButton textButtonDecoration({
     required String text,
     required VoidCallback onPressed,

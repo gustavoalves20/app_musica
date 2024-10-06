@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:nusic/components/button_login.dart';
+import 'package:nusic/components/text_register.dart';
 import 'package:nusic/components/email_text_field.dart';
 import 'package:nusic/components/forgot_password.dart';
 import 'package:nusic/components/logo.dart';
@@ -18,11 +19,10 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(
             children: [
               const Logo(),
               const EmailTextField(),
@@ -31,7 +31,8 @@ class _LoginViewState extends State<LoginView> {
               const ButtonLogin(),
             ],
           ),
-        ),
+          const ButtonRegister(),
+        ],
       ),
     );
   }
