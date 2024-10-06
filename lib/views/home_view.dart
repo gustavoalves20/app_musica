@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nusic/components/bottom_bar_container.dart';
 import 'package:nusic/controller/bottom_bar_controller.dart';
 
 import 'package:nusic/theme/my_app_bar_theme.dart';
-import 'package:nusic/theme/my_bottom_bar_theme.dart';
-import 'package:nusic/theme/my_text_field_theme.dart';
 import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
@@ -16,33 +15,19 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    final bottomBarController = Provider.of<BottomBarController>(context);
+    //var h = MediaQuery.of(context).size.height;
+    //var w = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: MyAppBarTheme.appBarDecoration,
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: TextField(
-              cursorColor: Colors.black,
-              decoration: MyTextFieldTheme.textFieldDecoration(
-                hintText: 'Buscar músicas',
-                contentPadding: const EdgeInsets.all(15),
-                borderColor: Colors.black,
-                prefixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.search_rounded),
-                ),
-              ),
-            ),
-          ),
-        ],
+      body: Consumer<BottomBarController>(
+        builder: (context, value, child) {
+          return const Column(
+            children: [],
+          );
+        },
       ),
-      bottomNavigationBar: MyBottomBar.bottomNavBarDecoration(
-        currentIndex: bottomBarController.currentIndex,
-        onTap: bottomBarController.onNavBarTap,
-      ),
+      bottomNavigationBar: const BottomBarContainer(),
     );
   }
 }

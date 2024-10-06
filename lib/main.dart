@@ -7,9 +7,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-        create: (context) => BottomBarController(),
-        ),
+        ChangeNotifierProvider(create: (context) => BottomBarController()),
       ],
       child: const MyApp(),
     ),

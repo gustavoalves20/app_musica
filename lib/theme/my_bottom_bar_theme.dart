@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nusic/shared/custom_color.dart';
 
 class MyBottomBar {
   static BottomNavigationBar bottomNavBarDecoration({
@@ -8,8 +9,9 @@ class MyBottomBar {
     return BottomNavigationBar(
       currentIndex: currentIndex,
       onTap: onTap,
-      selectedItemColor: Colors.black,
-      unselectedItemColor: const Color(0xFFBDBCC5),
+      backgroundColor: CustomColor.background,
+      selectedItemColor: CustomColor.bgFocus,
+      unselectedItemColor: CustomColor.bgUnfocus,
       type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(
