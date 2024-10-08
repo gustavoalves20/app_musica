@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nusic/controller/button_register_controller.dart';
-import 'package:nusic/shared/custom_color.dart';
 import 'package:nusic/theme/custom_button_theme.dart';
 
 class ButtonRegister extends StatelessWidget {
@@ -13,7 +12,6 @@ class ButtonRegister extends StatelessWidget {
       child: CustomButtonTheme.buttonDecoration(
         onPressed: () => ButtonRegisterController.navigateLogin(context),
         text: 'Cadastrar',
-        backgroundColor: CustomColor.bgPrimary,
         fontsize: 16,
       ),
     );

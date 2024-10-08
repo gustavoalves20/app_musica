@@ -11,7 +11,7 @@ class CustomButtonTheme {
     double height = 40,
     double width = double.infinity,
   }) {
-    backgroundColor ??= CustomColor.background;
+    backgroundColor ??= CustomColor.bgPrimary;
     textColor ??= CustomColor.textPrimary;
     return ElevatedButton(
       onPressed: onPressed,

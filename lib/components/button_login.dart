@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nusic/controller/button_login_controller.dart';
-import 'package:nusic/shared/custom_color.dart';
 import 'package:nusic/theme/custom_button_theme.dart';
 
 class ButtonLogin extends StatelessWidget {
@@ -13,7 +12,6 @@ class ButtonLogin extends StatelessWidget {
       child: CustomButtonTheme.buttonDecoration(
         onPressed: () => ButtonLoginController.navigateHome(context),
         text: 'LOGIN',
-        backgroundColor: CustomColor.bgPrimary,
         fontsize: 16,
       ),
     );

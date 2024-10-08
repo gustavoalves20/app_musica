@@ -6,8 +6,11 @@ class CustomAppBarTheme {
     required String title,
     Widget? leading,
     List<Widget>? actions,
-  }) {
+    bool? centerTitle,
+  }) { 
+    centerTitle ??= false;
     return AppBar(
+      centerTitle: centerTitle,
       backgroundColor: CustomColor.background,
       iconTheme: IconThemeData(color: CustomColor.textPrimary),
       elevation: 0,

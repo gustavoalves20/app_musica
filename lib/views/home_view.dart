@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nusic/components/bottom_bar_container.dart';
 import 'package:nusic/controller/bottom_bar_controller.dart';
-
-import 'package:nusic/theme/custom_app_bar_theme.dart';
 import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
@@ -15,30 +13,12 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
+    final bottomBarController = Provider.of<BottomBarController>(context);
     return Scaffold(
-      appBar: CustomAppBarTheme.appBarDecoration(
-        leading: const Padding(
-          padding: EdgeInsets.only(left: 8),
-          child: CircleAvatar(backgroundImage: AssetImage('assets/eu.jpg')),
-        ),
-        title: 'Olá, Gustavo',
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.notifications_rounded),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.settings_rounded),
-          ),
-        ],
-      ),
-      body: Consumer<BottomBarController>(
-        builder: (context, value, child) {
-          return const Column(
-            children: [],
-          );
-        },
+      body: PageView(
+        controller: Provider.of<BottomBarController>(context).pageController,
+        onPageChanged: (index) => bottomBarController.onNavBarTap(index),
+        children: [...bottomBarController.onList()],
       ),
       bottomNavigationBar: const BottomBarContainer(),
     );
