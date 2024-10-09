@@ -6,7 +6,7 @@ class CustomTextStyleTheme {
   static TextStyle title = GoogleFonts.ptSans(
     textStyle: TextStyle(
       fontSize: 16,
-      color: CustomColor.textPrimary,
+      color: CustomColor.textWhite,
       fontWeight: FontWeight.bold,
     ),
   );
@@ -14,7 +14,7 @@ class CustomTextStyleTheme {
   static TextStyle subtitle = GoogleFonts.ptSans(
     textStyle: TextStyle(
       fontSize: 14,
-      color: CustomColor.textSecondary,
+      color: CustomColor.textGrey,
       fontWeight: FontWeight.bold,
     ),
   );

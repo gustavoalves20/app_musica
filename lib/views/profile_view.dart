@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nusic/components/info_profile.dart';
 import 'package:nusic/components/list_view_profile.dart';
-import 'package:nusic/theme/custom_app_bar_theme.dart';
+import '../components/custom_app_bar.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -13,12 +13,12 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBarTheme.appBarDecoration(
-        title: 'Perfil',
+    return const Scaffold(
+      appBar: CustomAppBar(
+        title: 'Conta',
         centerTitle: true,
       ),
-      body: const Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           InfoProfile(),

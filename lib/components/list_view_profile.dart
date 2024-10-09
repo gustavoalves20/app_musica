@@ -17,12 +17,14 @@ class ListViewProfile extends StatelessWidget {
         return ListTile(
           onTap: () {},
           titleTextStyle: CustomTextStyleTheme.title,
+          subtitleTextStyle: CustomTextStyleTheme.subtitle,
+          iconColor: CustomColor.textWhite,
           leading: items.nomeIcon,
           title: Text(items.title),
           subtitle: Text(items.subTitle),
         );
       },
-      separatorBuilder: (context, index) => Divider(height: 2, color: CustomColor.bgGrey, thickness: 0.2, indent: 20, endIndent: 20),
+      separatorBuilder: (context, index) => Divider(height: 1, color: CustomColor.textGrey, thickness: 0.2, indent: 20, endIndent: 20),
     );
   }
 }

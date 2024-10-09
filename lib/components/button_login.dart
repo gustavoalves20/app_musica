@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nusic/controller/button_login_controller.dart';
-import 'package:nusic/theme/custom_button_theme.dart';
+
+import 'custom_button.dart';
 
 class ButtonLogin extends StatelessWidget {
   const ButtonLogin({super.key});
@@ -9,10 +10,9 @@ class ButtonLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: CustomButtonTheme.buttonDecoration(
+      child: CustomButton(
         onPressed: () => ButtonLoginController.navigateHome(context),
         text: 'LOGIN',
-        fontsize: 16,
       ),
     );
   }

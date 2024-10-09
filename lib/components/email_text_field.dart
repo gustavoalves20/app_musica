@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nusic/shared/custom_color.dart';
-import 'package:nusic/theme/custom_text_field_theme.dart';
+import 'package:nusic/components/custom_text_field.dart';
 
 class EmailTextField extends StatelessWidget {
   const EmailTextField({super.key});
@@ -10,14 +9,9 @@ class EmailTextField extends StatelessWidget {
     final _emailController = TextEditingController();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: TextField(
-        cursorColor: CustomColor.textPrimary,
+      child: CustomTextField(
+        hintText: 'Email',
         controller: _emailController,
-        decoration: CustomTextFieldTheme.textFieldDecoration(
-          hintText: 'Email',
-          borderColor: CustomColor.bgPrimary,
-          contentPadding: const EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-        ),
       ),
     );
   }

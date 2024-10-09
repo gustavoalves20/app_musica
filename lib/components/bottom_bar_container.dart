@@ -12,7 +12,7 @@ class BottomBarContainer extends StatelessWidget {
 
     return Container(
       decoration: const BoxDecoration(
-        boxShadow: [
+        boxShadow:  [
           BoxShadow(
             color: Colors.black38,
             blurRadius: 5,
@@ -25,7 +25,7 @@ class BottomBarContainer extends StatelessWidget {
         onTap: (index) => bottomBarController.onNavBarTap(index),
         backgroundColor: CustomColor.background,
         selectedItemColor: CustomColor.bgPrimary,
-        unselectedItemColor: CustomColor.bgGrey,
+        unselectedItemColor: CustomColor.textGrey,
         selectedFontSize: 14,
         unselectedFontSize: 14,
         type: BottomNavigationBarType.fixed,

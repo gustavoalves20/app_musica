@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nusic/theme/custom_app_bar_theme.dart';
+
+import '../components/custom_app_bar.dart';
 
 class HomeContentView extends StatefulWidget {
   const HomeContentView({super.key});
@@ -11,10 +12,10 @@ class HomeContentView extends StatefulWidget {
 class _HomeContentViewState extends State<HomeContentView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBarTheme.appBarDecoration(
+    return const Scaffold(
+      appBar:  CustomAppBar(
         title: 'Olá, Gustavo',
-        leading: const Padding(
+        leading: Padding(
           padding: EdgeInsets.only(left: 8),
           child: CircleAvatar(
             backgroundImage: AssetImage('assets/eu.jpg'),

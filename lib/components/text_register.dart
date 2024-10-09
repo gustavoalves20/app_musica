@@ -11,7 +11,7 @@ class ButtonRegister extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: 'Não tem conta? ',
-        style: TextStyle(color: CustomColor.textPrimary),
+        style: TextStyle(color: CustomColor.textWhite),
         children: [
           TextSpan(
             text: 'Criar conta',

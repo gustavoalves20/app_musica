@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nusic/shared/custom_color.dart';
-import 'package:nusic/theme/custom_text_button_theme.dart';
+import '../shared/custom_color.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
@@ -12,10 +11,12 @@ class ForgotPassword extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          CustomTextButtonTheme.textButtonDecoration(
+          TextButton(
             onPressed: () {},
-            text: 'Esqueci a senha',
-            textColor: CustomColor.textPrimary,        
+            child: Text(
+              'Esqueci a senha',
+              style: TextStyle(fontSize: 12, color: CustomColor.textOrange),
+            ),
           ),
         ],
       ),

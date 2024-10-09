@@ -15,7 +15,7 @@ class InfoProfile extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: CircleAvatar(
-              radius: 50,
+              radius: 40,
               backgroundImage: AssetImage('assets/eu.jpg'),
             ),
           ),
