@@ -11,6 +11,7 @@ class PasswordTextField extends StatelessWidget {
       padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
       child: CustomTextField(
         hintText: 'Senha',
+        obscureText: true,
         controller: _passwordController,
         suffixIcon: IconButton(
           onPressed: () {},

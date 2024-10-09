@@ -38,6 +38,7 @@ class CustomTextField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       cursorColor: cursorClr,
+      style: TextStyle(color: CustomColor.textWhite),
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyle(color: CustomColor.textWhite),

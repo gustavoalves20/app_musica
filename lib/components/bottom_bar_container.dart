@@ -35,8 +35,8 @@ class BottomBarContainer extends StatelessWidget {
             icon: Icon(Icons.home_rounded),
           ),
           BottomNavigationBarItem(
-            label: 'Buscar',
-            icon: Icon(Icons.search_rounded),
+            label: 'Músicas',
+            icon: Icon(Icons.music_note_rounded),
           ),
           BottomNavigationBarItem(
             label: 'Biblioteca',

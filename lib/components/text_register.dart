@@ -16,7 +16,7 @@ class ButtonRegister extends StatelessWidget {
           TextSpan(
             text: 'Criar conta',
             style: TextStyle(
-              color: CustomColor.bgPrimary,
+              color: CustomColor.textOrange,
               fontWeight: FontWeight.bold,
             ),
             recognizer: TapGestureRecognizer()..onTap =() => ButtonRegisterController.navigateRegister(context),

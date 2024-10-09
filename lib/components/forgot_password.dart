@@ -15,7 +15,7 @@ class ForgotPassword extends StatelessWidget {
             onPressed: () {},
             child: Text(
               'Esqueci a senha',
-              style: TextStyle(fontSize: 12, color: CustomColor.textOrange),
+              style: TextStyle(fontSize: 12, color: CustomColor.textWhite),
             ),
           ),
         ],

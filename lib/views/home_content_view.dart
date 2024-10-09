@@ -13,7 +13,7 @@ class _HomeContentViewState extends State<HomeContentView> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar:  CustomAppBar(
+      appBar: CustomAppBar(
         title: 'Olá, Gustavo',
         leading: Padding(
           padding: EdgeInsets.only(left: 8),

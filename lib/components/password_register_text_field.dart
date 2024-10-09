@@ -10,7 +10,8 @@ class PasswordRegisterTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: CustomTextField(
-        hintText: 'Email',
+        hintText: 'Senha',
+        obscureText: true,
         controller: _passwordController,
         suffixIcon: IconButton(
           onPressed: () {},

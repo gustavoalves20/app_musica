@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nusic/components/custom_app_bar.dart';
+import 'package:nusic/components/tab_bar_buscar.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
@@ -10,6 +12,12 @@ class SearchView extends StatefulWidget {
 class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('SearchView', style: TextStyle(color: Colors.white),));
+    return const Scaffold(
+      appBar: CustomAppBar(
+        title: 'Músicas',
+        centerTitle: true,
+      ),
+      body: TabBarBuscar(),
+    );
   }
 }
